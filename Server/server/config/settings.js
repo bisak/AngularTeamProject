@@ -5,7 +5,7 @@ let rootPath = path.normalize(path.join(__dirname, '/../../'))
 module.exports = {
   development: {
     rootPath: rootPath,
-    db: 'mongodb://localhost:27017/ReactTeamworkDB',
+    db: 'mongodb://localhost:27017/AngularTeamworkDB',
     port: 8080,
     statisticsUpdateInterval: 300000
   }
