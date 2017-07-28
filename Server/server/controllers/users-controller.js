@@ -43,7 +43,7 @@ module.exports = {
 
     User.findOne({ username: username }).then((foundUser) => {
       if (!foundUser) {
-        return res.status(400).json({ success: false, msg: 'User not found' })
+        return res.status(400).json({ success: false, msg: 'Wrong credentials' })
       }
       return encryptionUtil.comparePassword(password, foundUser.password).then((isMatch) => {
         if (isMatch) {
@@ -54,7 +54,7 @@ module.exports = {
             token: 'JWT ' + token
           })
         }
-        return res.status(400).json({ success: false, msg: 'Wrong password' })
+        return res.status(400).json({ success: false, msg: 'Wrong credentials' })
       })
     }).catch((error) => {
       console.error(error)

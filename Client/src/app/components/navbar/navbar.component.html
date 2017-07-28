@@ -1,4 +1,4 @@
-<nav class="cyan darken-2">
+<nav class="teal">
   <div class="nav-wrapper">
     <div class="container">
       <a [routerLink]="['/']" class="brand-logo center">SomeName</a>
@@ -31,7 +31,7 @@
           <a materialize="dropdown" class="dropdown-button" data-activates="profile-dropdown">
             {{username}}
             <i class="material-icons right dropdown-arrow-navbar">arrow_drop_down</i></a></li>
-        <ul *ngIf="authHelperService.isLoggedIn()" id="profile-dropdown" class="dropdown-content blue-grey darken-4">
+        <ul *ngIf="authHelperService.isLoggedIn()" id="profile-dropdown" class="dropdown-content teal darken-2">
           <li [routerLinkActive]="['active']"
               [routerLinkActiveOptions]="routerLinkOpts"><a class="white-text" [routerLink]="['/profile', username]">Profile</a>
           </li>

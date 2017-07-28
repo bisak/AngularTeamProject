@@ -1,11 +1,5 @@
 import { Injectable } from '@angular/core';
-
-import { tokenNotExpired, JwtHelper } from 'angular2-jwt'
-import { Headers, Http, Response } from "@angular/http"
-import { Observable } from "rxjs/Observable"
-import 'rxjs/add/operator/map'
 import { ApiService } from "./api.service";
-import { Subject } from "rxjs";
 
 @Injectable()
 export class AuthService {
@@ -13,11 +7,11 @@ export class AuthService {
   constructor(private apiService: ApiService) {
   }
 
-  registerUser(user): Observable<any> {
-    return this.apiService.post(`auth/register`, user);
+  registerUser(user): Promise<any> {
+    return this.apiService.post(`/users/register`, user);
   }
 
-  loginUser(user): Observable<any> {
-    return this.apiService.post(`auth/login`, user);
+  loginUser(user): Promise<any> {
+    return this.apiService.post(`/users/login`, user);
   }
 }

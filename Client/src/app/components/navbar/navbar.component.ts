@@ -24,11 +24,11 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    const decodedToken = this.authHelperService.getDecodedAuthToken()
+    const decodedToken = this.authHelperService.getDecodedAuthToken();
     if (decodedToken) {
       this.fullName = `${decodedToken.firstName} ${decodedToken.lastName}`;
+      this.profilePicUrl = decodedToken.profilePic;
     }
-
     this.username = this.authHelperService.getUsernameFromToken();
     this.userId = this.authHelperService.getUserIdFromToken();
 
@@ -36,6 +36,7 @@ export class NavbarComponent implements OnInit {
       const decToken = this.authHelperService.getDecodedAuthToken();
       this.username = this.authHelperService.getUsernameFromToken();
       this.userId = this.authHelperService.getUserIdFromToken();
+      this.profilePicUrl = decToken.profilePic;
     });
   }
 

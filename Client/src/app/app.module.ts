@@ -11,24 +11,34 @@ import { AuthHelperService } from './services/auth-helper.service';
 import { ToastService } from './services/toast.service';
 import { AuthService } from './services/auth.service';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { ValidateService } from './services/validate.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterializeModule
+    MaterializeModule,
+    FormsModule,
+    HttpModule
   ],
   providers: [
     ApiService,
     AuthHelperService,
     AuthService,
-    ToastService
+    ToastService,
+    ValidateService
   ],
   bootstrap: [AppComponent]
 })

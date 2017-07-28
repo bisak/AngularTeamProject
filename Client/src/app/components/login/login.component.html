@@ -1,0 +1,39 @@
+<div class="section">
+
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m8 l6 offset-m2 offset-l3">
+        <form (ngSubmit)="onLoginSubmit()">
+          <h3 class="center blue-grey-text text-darken-2">Login</h3>
+          <div class="row">
+            <div class="input-field col s10 offset-s1">
+              <i class="material-icons prefix">account_box</i>
+              <input [(ngModel)]="username" name="username" id="username" type="text" class="validate" required>
+              <label for="username">Username</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s10 offset-s1">
+              <i class="material-icons prefix">lock</i>
+              <input [(ngModel)]="password" name="password" id="password" type="password" class="validate" required>
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class='row'>
+            <div class="col s6 offset-s3 l4 offset-l4">
+              <button type='submit' name='btn_login'
+                      class='col s12 btn btn-large waves-effect'>
+                Login
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="center">
+      <a [routerLink]="['/register']">Register</a>
+    </div>
+  </div>
+</div>
+
