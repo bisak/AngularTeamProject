@@ -23,6 +23,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { ProductsService } from './services/products.service';
 import { SearchComponent } from './sub-components/search/search.component';
 import { PaginationComponent } from './sub-components/pagination/pagination.component';
+import { SingleProductComponent } from './components/single-product/single-product.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { PaginationComponent } from './sub-components/pagination/pagination.comp
     AllProductsComponent,
     AddProductComponent,
     SearchComponent,
-    PaginationComponent
+    PaginationComponent,
+    SingleProductComponent
   ],
   imports: [
     BrowserModule,

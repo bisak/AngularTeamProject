@@ -13,7 +13,7 @@
         <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="routerLinkOpts">
           <a [routerLink]="['/']">Home</a>
         </li>
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="routerLinkOpts">
+        <li [routerLinkActive]="['active']">
           <a [routerLink]="['/products', 'all']">Products</a>
         </li>
       </ul>
@@ -41,7 +41,8 @@
           </li>
 
           <li [routerLinkActive]="['active']"
-              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['products','add']" class="white-text">Add product</a>
+              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['products','add']" class="white-text">Add
+            product</a>
           </li>
 
           <li><a class="white-text" (click)="onLogoutClick()">Logout</a></li>
@@ -66,7 +67,8 @@
           </div>
         </li>
 
-        <li *ngIf="!authHelperService.isLoggedIn()"><h3 class="blue-text center"><strong>Angularistic Store</strong></h3>
+        <li *ngIf="!authHelperService.isLoggedIn()"><h3 class="blue-text center"><strong>Angularistic Store</strong>
+        </h3>
         </li>
 
         <li *ngIf="!authHelperService.isLoggedIn()" class="divider"></li>
@@ -75,7 +77,7 @@
           <a [routerLink]="['/']">Home</a>
         </li>
 
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="routerLinkOpts">
+        <li [routerLinkActive]="['active']">
           <a [routerLink]="['/products','all']">Products</a>
         </li>
 

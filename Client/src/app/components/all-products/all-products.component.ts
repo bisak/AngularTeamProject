@@ -10,7 +10,6 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./all-products.component.css']
 })
 export class AllProductsComponent implements OnInit {
-
   currentPage;
   search;
   totalPages;
@@ -25,17 +24,14 @@ export class AllProductsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe((params: Params) => {
-      this.currentPage = params.page || 1;
-      this.search = params.search || '';
-      this.getProducts(this.currentPage, this.search).then(this.onDataSuccess).catch(this.onDataError);
-    });
+    this.listenForUrlChanges();
   }
 
   onDataSuccess(response) {
     let { data } = response;
     this.totalPages = data.pagesCount;
     this.products = data.products;
+    window.scrollTo(0, 0);
     console.log(this.products);
   }
 
@@ -50,5 +46,13 @@ export class AllProductsComponent implements OnInit {
 
   getProducts(page, search): Promise<Array<any>> {
     return this.productsService.getOnePageProducts(page, search);
+  }
+
+  listenForUrlChanges() {
+    this.route.queryParams.subscribe((params: Params) => {
+      this.currentPage = params.page || 1;
+      this.search = params.search || '';
+      this.getProducts(this.currentPage, this.search).then(this.onDataSuccess).catch(this.onDataError);
+    });
   }
 }

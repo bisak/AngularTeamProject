@@ -1,3 +1,14 @@
-<p>
-  list-product works!
-</p>
+<div class="row z-depth-1 inner-padding">
+  <div class="col s12">
+    <div class="col m4">
+      <img [src]="product.imageUrl" class="responsive-img round" alt="Product image">
+    </div>
+    <div class="col m6 break-word">
+      <p class="name no-margin-top"><strong>{{product.name}}</strong> (${{product.price}})</p>
+      <span>{{product.description}}</span>
+    </div>
+    <div class="col m2 center center-block">
+      <a class="waves-effect waves-teal btn-flat details-btn" routerLink="/products/{{product._id}}">Details</a>
+    </div>
+  </div>
+</div>

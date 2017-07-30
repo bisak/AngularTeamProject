@@ -80,3 +80,7 @@
 .round {
   border-radius: 3px;
 }
+
+.break-word{
+  word-break: break-all;
+}

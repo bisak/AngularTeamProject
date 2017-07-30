@@ -1,7 +1,11 @@
 <div class="container">
-  <h5 class="center">All products</h5>
+  <div class="row search">
+    <app-search class="col m6 offset-m3 s8 offset-s2" [query]="search" (onSearch)="handleSearch($event)"></app-search>
+  </div>
   <div class="row">
-    <app-search class="col m6 offset-m3 s8 offset-s2" (onSearch)="handleSearch($event)"></app-search>
+    <div class="col">
+      <app-list-product *ngFor="let product of products" [product]="product"></app-list-product>
+    </div>
   </div>
   <div class="row">
     <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" [search]="search"></app-pagination>
