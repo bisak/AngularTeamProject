@@ -9,4 +9,8 @@ export class StatsService {
   getHomeStats(){
     return this.apiService.get('/stats/home')
   }
+
+  getAllStats(){
+    return this.apiService.get('/stats/all')
+  }
 }

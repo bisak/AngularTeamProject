@@ -45,6 +45,10 @@
             product</a>
           </li>
 
+          <li [routerLinkActive]="['active']"
+              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['statistics']" class="white-text">Statistics</a>
+          </li>
+
           <li><a class="white-text" (click)="onLogoutClick()">Logout</a></li>
 
         </ul>

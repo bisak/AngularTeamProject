@@ -24,7 +24,7 @@ import { ProductsService } from './services/products.service';
 import { SearchComponent } from './sub-components/search/search.component';
 import { PaginationComponent } from './sub-components/pagination/pagination.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
-
+import { StatsComponent } from './components/stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,8 @@ import { SingleProductComponent } from './components/single-product/single-produ
     AddProductComponent,
     SearchComponent,
     PaginationComponent,
-    SingleProductComponent
+    SingleProductComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
