@@ -25,3 +25,7 @@
 .dropdown-arrow-navbar{
   margin-left: 5px;
 }
+
+.dropdown-ul-container{
+  min-width: 120px;
+}

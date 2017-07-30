@@ -76,3 +76,7 @@
 .medium-text {
   font-size: 1.1rem !important;
 }
+
+.round {
+  border-radius: 3px;
+}

@@ -1,89 +1,105 @@
-<nav class="teal">
+<nav class="teal lighten-1">
   <div class="nav-wrapper">
     <div class="container">
-      <a [routerLink]="['/']" class="brand-logo center">SomeName</a>
+
+      <a [routerLink]="['/']" class="brand-logo center">Angularistic Store</a>
+
       <a materialize="sideNav" [materializeParams]="[{closeOnClick: true, draggable: true}]"
          data-activates="mobile-demo" class="button-collapse">
         <i class="material-icons">menu</i>
       </a>
+
       <ul class="left hide-on-med-and-down">
-        <li *ngIf="!authHelperService.isLoggedIn()" [routerLinkActive]="['active']"
-            [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['/']">Home</a>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="routerLinkOpts">
+          <a [routerLink]="['/']">Home</a>
         </li>
         <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="routerLinkOpts">
-          <a [routerLink]="['/discover']">Discover</a>
-        </li>
-        <li *ngIf="authHelperService.isLoggedIn()" [routerLinkActive]="['active']"
-            [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['/feed']">Feed</a>
-        </li>
-        <li *ngIf="authHelperService.isLoggedIn()" [routerLinkActive]="['active']"
-            [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['/upload']">Upload</a>
+          <a [routerLink]="['/products', 'all']">Products</a>
         </li>
       </ul>
+
       <ul class="right hide-on-med-and-down">
+
         <li *ngIf="!authHelperService.isLoggedIn()" [routerLinkActive]="['active']"
             [routerLinkActiveOptions]="routerLinkOpts"><a
           [routerLink]="['login']">Login</a></li>
+
         <li *ngIf="!authHelperService.isLoggedIn()" [routerLinkActive]="['active']"
             [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['/register']">Register</a>
         </li>
-        <li *ngIf="authHelperService.isLoggedIn()">
+
+        <li class="dropdown-ul-container" *ngIf="authHelperService.isLoggedIn()">
           <a materialize="dropdown" class="dropdown-button" data-activates="profile-dropdown">
             {{username}}
-            <i class="material-icons right dropdown-arrow-navbar">arrow_drop_down</i></a></li>
-        <ul *ngIf="authHelperService.isLoggedIn()" id="profile-dropdown" class="dropdown-content teal darken-2">
+            <i class="material-icons right dropdown-arrow-navbar">arrow_drop_down</i></a>
+        </li>
+
+        <ul *ngIf="authHelperService.isLoggedIn()" id="profile-dropdown" class="dropdown-content teal">
+
           <li [routerLinkActive]="['active']"
               [routerLinkActiveOptions]="routerLinkOpts"><a class="white-text" [routerLink]="['/profile', username]">Profile</a>
           </li>
+
           <li [routerLinkActive]="['active']"
-              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['user','settings']" class="white-text">Settings</a>
+              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['products','add']" class="white-text">Add product</a>
           </li>
+
           <li><a class="white-text" (click)="onLogoutClick()">Logout</a></li>
+
         </ul>
       </ul>
+
+
       <ul class="side-nav" id="mobile-demo">
+
         <li *ngIf="authHelperService.isLoggedIn()">
           <div class="userView">
+
             <div class="background">
               <img src="/assets/wide_small.jpg" alt="">
             </div>
+
             <a [routerLink]="['/profile', username]"><img class="circle" [src]="profilePicUrl"></a>
             <a [routerLink]="['/profile', username]"><span class="white-text name">{{username}}</span></a>
             <a [routerLink]="['/profile', username]"><span class="white-text email">{{fullName}}</span></a>
+
           </div>
         </li>
-        <li *ngIf="!authHelperService.isLoggedIn()"><h3 class="blue-text center"><strong>SomeName</strong></h3></li>
+
+        <li *ngIf="!authHelperService.isLoggedIn()"><h3 class="blue-text center"><strong>Angularistic Store</strong></h3>
+        </li>
+
         <li *ngIf="!authHelperService.isLoggedIn()" class="divider"></li>
-        <li *ngIf="!authHelperService.isLoggedIn()" [routerLinkActive]="['active']"
-            [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['/']">Home</a>
+
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="routerLinkOpts">
+          <a [routerLink]="['/']">Home</a>
         </li>
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['/discover']">Discover</a>
+
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="routerLinkOpts">
+          <a [routerLink]="['/products','all']">Products</a>
         </li>
-        <li *ngIf="authHelperService.isLoggedIn()" [routerLinkActive]="['active']"
-            [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['/feed']">Feed</a>
-        </li>
-        <li *ngIf="authHelperService.isLoggedIn()" [routerLinkActive]="['active']"
-            [routerLinkActiveOptions]="routerLinkOpts">
-          <a [routerLink]="['/upload']">Upload</a>
-        </li>
+
         <li *ngIf="!authHelperService.isLoggedIn()" class="divider"></li>
+
         <li *ngIf="!authHelperService.isLoggedIn()" [routerLinkActive]="['active']"
             [routerLinkActiveOptions]="routerLinkOpts"><a
           [routerLink]="['login']">Login</a></li>
+
         <li *ngIf="!authHelperService.isLoggedIn()" [routerLinkActive]="['active']"
             [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['/register']">Register</a>
         </li>
+
         <li *ngIf="authHelperService.isLoggedIn()" class="divider"></li>
+
         <li *ngIf="authHelperService.isLoggedIn()" [routerLinkActive]="['active']"
             [routerLinkActiveOptions]="routerLinkOpts">
           <a [routerLink]="['/profile', username]">Profile</a>
         </li>
-        <li *ngIf="authHelperService.isLoggedIn()" [routerLinkActive]="['active']"
-            [routerLinkActiveOptions]="routerLinkOpts">
-          <a [routerLink]="['user','settings']">Settings</a>
-        </li>
+
         <li><a *ngIf="authHelperService.isLoggedIn()" (click)="onLogoutClick()">Logout</a></li>
+
       </ul>
+
     </div>
   </div>
 </nav>

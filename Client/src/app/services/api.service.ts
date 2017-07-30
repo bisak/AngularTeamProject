@@ -19,19 +19,20 @@ export class ApiService {
 
   get(path: string) {
     let headers = new Headers();
-    headers.append('Authorization', this.authHelperService.getAuthToken());
-    headers.append('Content-Type', 'application/json');
+    if (this.authHelperService.isLoggedIn()) {
+      headers.append('Authorization', this.authHelperService.getAuthToken());
+    }
     return this.http.get(`${this.apiUrl}${path}`, { headers: headers })
       .toPromise()
       .then((response) => this.extractData(response))
       .catch((response) => this.handleError(response));
   }
 
-  /*TODO test with optional data parameter*/
   post(path: string, data: any) {
     let headers = new Headers();
-    headers.append('Authorization', this.authHelperService.getAuthToken());
-    headers.append('Content-Type', 'application/json');
+    if (this.authHelperService.isLoggedIn()) {
+      headers.append('Authorization', this.authHelperService.getAuthToken());
+    }
     return this.http.post(`${this.apiUrl}${path}`, data, { headers: headers })
       .toPromise()
       .then((response) => this.extractData(response))
@@ -40,7 +41,9 @@ export class ApiService {
 
   delete(path: string) {
     let headers = new Headers();
-    headers.append('Authorization', this.authHelperService.getAuthToken());
+    if (this.authHelperService.isLoggedIn()) {
+      headers.append('Authorization', this.authHelperService.getAuthToken());
+    }
     return this.http.delete(`${this.apiUrl}${path}`, { headers: headers })
       .toPromise()
       .then((response) => this.extractData(response))
@@ -48,7 +51,7 @@ export class ApiService {
   }
 
 
-  handleError(error: Response | any) {
+  private handleError(error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || {};
@@ -62,7 +65,7 @@ export class ApiService {
     return Promise.reject(error);
   }
 
-  extractData(res: Response) {
+  private  extractData(res: Response) {
     let body = res.json();
     return body || {};
   }

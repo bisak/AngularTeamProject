@@ -8,19 +8,6 @@ export class ValidateService {
 
   emailRegex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  validateProfilePicture(file) {
-    if (file.size > 6 * 1000000) {
-      return {
-        isValid: false,
-        msg: 'Profile picture too big.'
-      };
-    }
-    return {
-      isValid: true,
-      msg: ''
-    };
-  };
-
   validateRegisterInput(data, isEditData?) {
     if (!data.firstName) {
       return {
@@ -90,12 +77,56 @@ export class ValidateService {
     };
   }
 
-  getTagsArray(tags: string): Array<string> {
-    let tagsArray = tags
-      .split(' ')
-      .filter((tag) => tag !== '' && tag.startsWith('#') && tag.length > 3 && tag.length <= 20)
-      .map((tag) => tag.toLowerCase());
-    if (tagsArray.length > 0 && tagsArray.length <= 15) return tagsArray;
-    else return null;
+
+  validateAddProductInput(data, isEditData?) {
+    if (!data.name) {
+      return {
+        isValid: false,
+        msg: 'Name is required.'
+      };
+    }
+
+    if(!data.description){
+      return {
+        isValid: false,
+        msg: 'Description is required.'
+      };
+    }
+
+    if(!data.demoUrl){
+      return {
+        isValid: false,
+        msg: 'Demo URL is required.'
+      };
+    }
+
+    if(!data.imageUrl){
+      return {
+        isValid: false,
+        msg: 'Image URL is required.'
+      };
+    }
+
+    if(!data.price){
+      return {
+        isValid: false,
+        msg: 'Price is required.'
+      }
+    }
+
+    if(!isEditData){
+      if(!data.sourceCode){
+        return {
+          isValid: false,
+          msg: 'Source code is required.'
+        };
+      }
+    }
+
+    return {
+      isValid: true,
+      msg: ''
+    };
   }
+
 }

@@ -1,0 +1,13 @@
+<div>
+  <form (ngSubmit)="onFormSubmit()">
+    <div class="row">
+      <div class="input-field col s8 no-margin">
+          <input [(ngModel)]="query" id="search" type="text" name="search" required>
+          <label for="search">Search</label>
+      </div>
+      <div class="col s3">
+        <button type="submit" class="btn make-it-straight">Search</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthHelperService } from '../../services/auth-helper.service';
+import { StatsService } from '../../services/stats.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  stats: { data: {}, success: boolean };
+
+  constructor(public authHelperService: AuthHelperService, private statsService: StatsService) {
+  }
 
   ngOnInit() {
+    this.statsService.getHomeStats().then((retrievedStats) => {
+      this.stats = retrievedStats.data;
+    });
   }
 
 }

@@ -16,6 +16,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ValidateService } from './services/validate.service';
+import { StatsService } from './services/stats.service';
+import { AllProductsComponent } from './components/all-products/all-products.component';
+import { ListProductComponent } from './sub-components/list-product/list-product.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { ProductsService } from './services/products.service';
+import { SearchComponent } from './sub-components/search/search.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +31,11 @@ import { ValidateService } from './services/validate.service';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ListProductComponent,
+    AllProductsComponent,
+    AddProductComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +49,9 @@ import { ValidateService } from './services/validate.service';
     AuthHelperService,
     AuthService,
     ToastService,
-    ValidateService
+    ValidateService,
+    StatsService,
+    ProductsService
   ],
   bootstrap: [AppComponent]
 })
