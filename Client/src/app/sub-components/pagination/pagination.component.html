@@ -1,0 +1,19 @@
+<ul class="pagination center">
+
+  <li class="waves-effect">
+    <a [routerLink]="['.']" [queryParams]="{page: currentPage-1, search: search}">
+      <i class="material-icons">chevron_left</i>
+    </a>
+  </li>
+
+  <li *ngFor="let element of iterPages; let i = index" [ngClass]="{'active teal' : i+1==currentPage}">
+    <a [routerLink]="['.']" [queryParams]="{page: i+1, search: search}">{{i+1}}</a>
+  </li>
+
+  <li class="waves-effect">
+    <a [routerLink]="['.']" [queryParams]="{page: currentPage+1, search: search}">
+      <i class="material-icons">chevron_right</i>
+    </a>
+  </li>
+
+</ul>

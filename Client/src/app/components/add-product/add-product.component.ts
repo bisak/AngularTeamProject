@@ -49,7 +49,7 @@ export class AddProductComponent implements OnInit {
 
     this.productsService.addProduct(data).then((response) => {
       if(response.success){
-        this.router.navigate(['/products', 'all']);
+        // this.router.navigate(['/products', 'all']); //TODO remove comment
       }
     }).catch((error) => {
       this.toastService.errorToast('An error occured')

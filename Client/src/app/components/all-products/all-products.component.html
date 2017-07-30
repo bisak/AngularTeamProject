@@ -3,4 +3,7 @@
   <div class="row">
     <app-search class="col m6 offset-m3 s8 offset-s2" (onSearch)="handleSearch($event)"></app-search>
   </div>
+  <div class="row">
+    <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" [search]="search"></app-pagination>
+  </div>
 </div>

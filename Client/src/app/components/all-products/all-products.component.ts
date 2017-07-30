@@ -11,22 +11,32 @@ import 'rxjs/add/operator/switchMap';
 })
 export class AllProductsComponent implements OnInit {
 
+  currentPage;
+  search;
+  totalPages;
+  products;
+
   constructor(private productsService: ProductsService,
               private route: ActivatedRoute,
               private toastService: ToastService,
               private router: Router) {
+    this.onDataError = this.onDataError.bind(this);
+    this.onDataSuccess = this.onDataSuccess.bind(this);
   }
 
   ngOnInit() {
     this.route.queryParams.subscribe((params: Params) => {
-      const page = params.page || 1;
-      const search = params.search || '';
-      this.getProducts(page, search).then(this.onDataSuccess).catch(this.onDataError);
+      this.currentPage = params.page || 1;
+      this.search = params.search || '';
+      this.getProducts(this.currentPage, this.search).then(this.onDataSuccess).catch(this.onDataError);
     });
   }
 
-  onDataSuccess(data) {
-    console.log(data);
+  onDataSuccess(response) {
+    let { data } = response;
+    this.totalPages = data.pagesCount;
+    this.products = data.products;
+    console.log(this.products);
   }
 
   onDataError(error) {
