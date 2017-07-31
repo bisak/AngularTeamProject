@@ -26,7 +26,6 @@ export class SingleProductComponent implements OnInit {
   }
 
   getProductSuccess(data) {
-    console.log(data);
     this.product = data;
   }
 

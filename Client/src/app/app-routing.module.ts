@@ -6,7 +6,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { AllProductsComponent } from './components/all-products/all-products.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
-import { StatsComponent} from './components/stats/stats.component'
+import { StatsComponent } from './components/stats/stats.component';
+import { ProfileComponent } from './components/profile/profile.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -40,6 +42,10 @@ const routes: Routes = [
   {
     path: 'statistics',
     component: StatsComponent
+  },
+  {
+    path: 'profile/:username',
+    component: ProfileComponent
   }
 ];
 

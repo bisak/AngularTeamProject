@@ -26,6 +26,8 @@ import { PaginationComponent } from './sub-components/pagination/pagination.comp
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileService } from './services/profile.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
     PaginationComponent,
     SingleProductComponent,
     StatsComponent,
-    DateAgoPipe
+    DateAgoPipe,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
     ToastService,
     ValidateService,
     StatsService,
-    ProductsService
+    ProductsService,
+    ProfileService
   ],
   bootstrap: [AppComponent]
 })

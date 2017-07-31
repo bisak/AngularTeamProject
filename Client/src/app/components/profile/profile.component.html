@@ -1,0 +1,42 @@
+<div class="center-block container section center break-word" *ngIf="profileData">
+
+  <div class="row">
+    <h4>{{profileData.user.username}}</h4>
+    <h5>{{profileData.user.firstName}} {{profileData.user.lastName}}</h5>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <img class="responsive-img avatar z-depth-1 center-block" [src]="profileData.user.profilePic"
+           alt="Profile picture">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 round">
+
+      <h4>Reviews by {{username}}</h4>
+
+      <div class="row" *ngFor="let review of profileData.reviews">
+
+        <div class="col round s10 z-depth-1 offset-s1">
+
+          <div class="row">
+            <a routerLink="/products/{{review.component._id}}"><h5>{{review.component.name}}</h5></a>
+            <small>{{review.createdAt | dateAgo}}</small>
+            <div class="divider"></div>
+          </div>
+
+          <div class="row no-margin">
+            <p>{{review.content}}</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div *ngIf="!profileData.reviews.length">
+        <h5>No reviews available.</h5>
+      </div>
+
+    </div>
+  </div>
+</div>
