@@ -21,4 +21,12 @@ export class ProductsService {
     return this.apiService.get(`/components?page=${page}&search=${search}`);
   }
 
+  getSingleProduct(id) {
+    return this.apiService.get(`/component/${id}`);
+  }
+
+  addReview(id, review) {
+    return this.apiService.post(`/component/${id}/review`, { content: review });
+  }
+
 }

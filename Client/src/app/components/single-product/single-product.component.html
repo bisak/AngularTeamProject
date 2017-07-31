@@ -1,3 +1,69 @@
-<p>
-  single-product works!
-</p>
+<div class="center-block container section  center break-word" *ngIf="product">
+
+  <div class="section z-depth-1 round">
+    <div class="row">
+      <h4>{{product.name}}</h4>
+      <h5 class="medium-text">$ {{product.price}}</h5>
+      <small>Posted {{product.createdAt | dateAgo}}</small>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <img class="round responsive-img z-depth-1 center-block" [src]="product.imageUrl" alt="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s10 m8 offset-m2 offset-s1">
+        <p>{{product.description}}</p>
+      </div>
+    </div>
+    <div class="col m2 center center-block">
+      <a class="waves-effect waves-teal btn details-btn" [href]="product.demoUrl" target="_blank"
+         rel="noreferrer noopener">Demo</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <form (ngSubmit)="handleAddReview(reviewArea)">
+        <div class="row">
+          <div class="input-field col s10 offset-s1 m8 offset-m2">
+            <textarea #reviewArea id="review" class="materialize-textarea" required="required"></textarea>
+            <label for="review">Review</label>
+          </div>
+        </div>
+        <div class="row">
+          <button type="submit" class="btn">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 z-depth-1 round">
+
+      <h4>Reviews</h4>
+
+      <div class="row" *ngFor="let review of product.reviews">
+
+        <div class="col border round s10 offset-s1">
+
+          <div class="row">
+            <h5>{{review.creator}}</h5>
+            <small>{{review.createdAt | dateAgo}}</small>
+            <div class="divider"></div>
+          </div>
+
+          <div class="row no-margin">
+            <p>{{review.content}}</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div *ngIf="!product.reviews.length">
+        <h5>No reviews available.</h5>
+      </div>
+
+    </div>
+  </div>
+</div>

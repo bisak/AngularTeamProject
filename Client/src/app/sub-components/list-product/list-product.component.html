@@ -1,13 +1,17 @@
 <div class="row z-depth-1 inner-padding">
   <div class="col s12">
     <div class="col m4">
-      <img [src]="product.imageUrl" class="responsive-img round" alt="Product image">
+      <a routerLink="/products/{{product._id}}">
+        <img [src]="product.imageUrl" class="responsive-img round" alt="Product image">
+      </a>
     </div>
     <div class="col m6 break-word">
-      <p class="name no-margin-top"><strong>{{product.name}}</strong> (${{product.price}})</p>
+      <a routerLink="/products/{{product._id}}">
+        <p class="name no-margin-top"><strong>{{product.name}}</strong> (${{product.price}})</p>
+      </a>
       <span>{{product.description}}</span>
     </div>
-    <div class="col m2 center center-block">
+    <div class="col m2 center center-block hide-on-small-and-down">
       <a class="waves-effect waves-teal btn-flat details-btn" routerLink="/products/{{product._id}}">Details</a>
     </div>
   </div>

@@ -6,7 +6,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  constructor() { }
+  constructor() {
+  }
 
   @Output() onSearch: EventEmitter<string> = new EventEmitter();
   @Input() query;
@@ -14,7 +15,7 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  onFormSubmit(){
-    this.onSearch.emit(this.query)
+  onFormSubmit() {
+    this.onSearch.emit(this.query);
   }
 }

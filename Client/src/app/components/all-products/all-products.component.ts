@@ -28,11 +28,10 @@ export class AllProductsComponent implements OnInit {
   }
 
   onDataSuccess(response) {
-    let { data } = response;
+    const { data } = response;
     this.totalPages = data.pagesCount;
     this.products = data.products;
     window.scrollTo(0, 0);
-    console.log(this.products);
   }
 
   onDataError(error) {

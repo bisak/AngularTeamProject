@@ -25,6 +25,7 @@ import { SearchComponent } from './sub-components/search/search.component';
 import { PaginationComponent } from './sub-components/pagination/pagination.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import { StatsComponent } from './components/stats/stats.component';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { StatsComponent } from './components/stats/stats.component';
     SearchComponent,
     PaginationComponent,
     SingleProductComponent,
-    StatsComponent
+    StatsComponent,
+    DateAgoPipe
   ],
   imports: [
     BrowserModule,
