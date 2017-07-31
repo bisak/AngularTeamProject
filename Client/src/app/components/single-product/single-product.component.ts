@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from '../../services/toast.service';
+import { MaterializeAction } from 'angular2-materialize';
+import { AuthHelperService } from '../../services/auth-helper.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-single-product',
@@ -13,7 +16,14 @@ export class SingleProductComponent implements OnInit {
   productId;
   product;
 
-  constructor(private productsService: ProductsService, private route: ActivatedRoute, private toastService: ToastService) {
+  confirmBuyModal = new EventEmitter<string | MaterializeAction>();
+  confirmDeleteModal = new EventEmitter<string | MaterializeAction>();
+
+  constructor(private productsService: ProductsService,
+              private route: ActivatedRoute,
+              private toastService: ToastService,
+              public authHelperService: AuthHelperService,
+              public apiService: ApiService) {
   }
 
   ngOnInit() {
@@ -27,6 +37,7 @@ export class SingleProductComponent implements OnInit {
 
   getProductSuccess(data) {
     this.product = data;
+    console.log(data);
   }
 
   getProductError(error) {
@@ -44,6 +55,43 @@ export class SingleProductComponent implements OnInit {
     } else {
       this.toastService.toast('Please enter a review.');
     }
+  }
+
+  buyProduct() {
+    this.productsService.buyProduct(this.productId).then((data) => {
+      this.toastService.toast('Purchased successfully');
+      this.product.bought = true;
+    }).catch((error) => {
+      console.log(error);
+      this.toastService.toast('An error occured :/');
+    });
+    this.closeConfirmBuyModal();
+  }
+
+  deleteProduct() {
+    this.productsService.deleteProduct(this.productId).then((data) => {
+      this.toastService.toast('Deleted successfully');
+    }).catch((error) => {
+      console.log(error);
+      this.toastService.toast('An error occured :/');
+    });
+    this.closeConfirmDeleteModal();
+  }
+
+  closeConfirmBuyModal() {
+    this.confirmBuyModal.emit({ action: 'modal', params: ['close'] });
+  }
+
+  openConfirmBuyModal() {
+    this.confirmBuyModal.emit({ action: 'modal', params: ['open'] });
+  }
+
+  closeConfirmDeleteModal() {
+    this.confirmDeleteModal.emit({ action: 'modal', params: ['close'] });
+  }
+
+  openConfirmDeleteModal() {
+    this.confirmDeleteModal.emit({ action: 'modal', params: ['open'] });
   }
 
 }

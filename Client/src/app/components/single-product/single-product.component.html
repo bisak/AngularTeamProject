@@ -1,25 +1,42 @@
 <div class="center-block container section  center break-word" *ngIf="product">
 
   <div class="section z-depth-1 round">
+
     <div class="row">
       <h4>{{product.name}}</h4>
       <h5 class="medium-text">$ {{product.price}}</h5>
       <small>Posted {{product.createdAt | dateAgo}}</small>
+      <br>
+      <small *ngIf="product.bought" class="small-text green-text">You own this product.</small>
+      <br>
+      <button *ngIf="authHelperService.isAdmin()" (click)="openConfirmDeleteModal()" class="btn-flat red-text">Delete</button>
+      <!--Add edit here-->
     </div>
+
     <div class="row">
       <div class="col s12">
         <img class="round responsive-img z-depth-1 center-block" [src]="product.imageUrl" alt="">
       </div>
     </div>
+
     <div class="row">
       <div class="col s10 m8 offset-m2 offset-s1">
         <p>{{product.description}}</p>
       </div>
     </div>
-    <div class="col m2 center center-block">
-      <a class="waves-effect waves-teal btn details-btn" [href]="product.demoUrl" target="_blank"
-         rel="noreferrer noopener">Demo</a>
+
+    <div class="col m4 center center-block">
+      <a class="btn-flat" [href]="product.demoUrl" target="_blank" rel="noreferrer noopener">Component demo</a>
+
+      <button *ngIf="!product.bought && authHelperService.isLoggedIn()" type="button"
+              class="green-text btn-flat waves-effect waves-teal" (click)="openConfirmBuyModal()">Purchase!
+      </button>
+
+      <a *ngIf="product.bought" class="green-text btn-flat waves-effect waves-teal"
+         href="{{apiService.apiUrl}}/product/{{productId}}/source"
+         target="_blank" rel="noreferrer noopener">Download source</a>
     </div>
+
   </div>
 
   <div class="row">
@@ -66,4 +83,11 @@
 
     </div>
   </div>
+
+  <app-modal-confirm [confirmModal]="confirmBuyModal" [text]="'Confirm your purchase'"
+                     (confirm)="buyProduct()"></app-modal-confirm>
+
+  <app-modal-confirm [confirmModal]="confirmDeleteModal" [text]="'Really delete?'"
+                     (confirm)="deleteProduct()"></app-modal-confirm>
+
 </div>

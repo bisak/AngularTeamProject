@@ -29,4 +29,12 @@ export class ProductsService {
     return this.apiService.post(`/component/${id}/review`, { content: review });
   }
 
+  buyProduct(id) {
+    return this.apiService.post(`/component/${id}/buy`, {});
+  }
+
+  deleteProduct(id) {
+    return this.apiService.post(`/component/${id}/delete`, {});
+  }
+
 }

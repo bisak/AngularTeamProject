@@ -1,0 +1,12 @@
+<div class="modal" materialize="modal" [materializeActions]="confirmModal">
+  <div class="modal-content">
+    <div class="section">
+      <p class="center no-margin big-text">{{text}}</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="modal-footer">
+    <button (click)="_cancel()" class="waves-effect modal-close btn-flat">Cancel</button>
+    <button (click)="_confirm()" class="modal-action waves-effect btn-flat teal-text waves-teal">Confirm</button>
+  </div>
+</div>

@@ -15,7 +15,7 @@ export class ApiService {
               private authHelperService: AuthHelperService) {
   }
 
-  public apiUrl = environment.apiUrl;
+  apiUrl = environment.apiUrl;
 
   get(path: string) {
     let headers = new Headers();
