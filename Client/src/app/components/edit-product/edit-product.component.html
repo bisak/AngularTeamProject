@@ -1,0 +1,79 @@
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m8 l6 offset-m2 offset-l3">
+
+        <form (ngSubmit)="onEditSubmit()">
+          <div class="center">
+            <h5>Edit product</h5>
+          </div>
+          <div class="row">
+            <div class="input-field">
+              <i class="material-icons prefix">details</i>
+              <input [(ngModel)]="name" id="name" type="text" class="validate" name="name" required>
+              <label for="name">Name</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field">
+              <i class="material-icons prefix">description</i>
+              <input [(ngModel)]="description" id="description" type="text" class="validate" name="description"
+                     required>
+              <label for="description">Description</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field">
+              <i class="material-icons prefix">insert_link</i>
+              <input [(ngModel)]="demoUrl" id="demo" type="url" class="validate" name="demo" required>
+              <label for="demo">Demo URL</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field">
+              <i class="material-icons prefix">insert_link</i>
+              <input [(ngModel)]="imageUrl" id="image" type="url" class="validate" name="image" required>
+              <label for="image">Image URL</label>
+            </div>
+          </div>
+
+          <div *ngIf="imageUrl" class="row">
+            <div class="col s8 offset-s2">
+              <img [src]="imageUrl" alt="Demo picture preview / invalid url." class="round responsive-img grey-border">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field">
+              <i class="material-icons prefix">attach_money</i>
+              <input [(ngModel)]="price" id="price" type="number" min="1" class="validate" name="password" required>
+              <label for="price">Price</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="file-field input-field">
+              <div class="btn teal waves-effect  lighten-1 btn-flat white-text">
+                <span>Select</span>
+                <input (change)="onSourceSelected($event)" id="source" type="file" name="source" accept=".zip">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Source code">
+              </div>
+            </div>
+          </div>
+
+          <div class='row'>
+            <div class="col s6 offset-s3 l4 offset-l4">
+              <button type="submit" class='col s12 btn btn-large waves-effect'>Edit</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

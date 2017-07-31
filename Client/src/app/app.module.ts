@@ -29,6 +29,7 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileService } from './services/profile.service';
 import { ModalConfirmComponent } from './sub-components/modal-confirm/modal-confirm.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ModalConfirmComponent } from './sub-components/modal-confirm/modal-conf
     StatsComponent,
     DateAgoPipe,
     ProfileComponent,
-    ModalConfirmComponent
+    ModalConfirmComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

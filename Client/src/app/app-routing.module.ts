@@ -8,6 +8,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import {EditProductComponent} from "./components/edit-product/edit-product.component";
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: ':id',
         component: SingleProductComponent
+      },
+      {
+        path: ':id/edit',
+        component: EditProductComponent
       }
     ]
   },

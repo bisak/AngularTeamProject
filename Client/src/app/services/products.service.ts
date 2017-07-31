@@ -16,6 +16,17 @@ export class ProductsService {
     formData.append('sourceCode', sourceCode);
     return this.apiService.post('/component/add', formData);
   }
+  editProduct(id, data) {
+    let formData: FormData = new FormData();
+    const productToEditCopy = { ...data };
+    const { sourceCode } = productToEditCopy;
+    delete productToEditCopy.sourceCode;
+    formData.append('data', JSON.stringify(productToEditCopy));
+    if(sourceCode){
+      formData.append('sourceCode', sourceCode);
+    }
+    return this.apiService.post(`/component/${id}/edit`, formData);
+  }
 
   getOnePageProducts(page?: number | string, search?: string) {
     return this.apiService.get(`/components?page=${page}&search=${search}`);

@@ -10,7 +10,7 @@
       <small *ngIf="product.bought" class="small-text green-text">You own this product.</small>
       <br>
       <button *ngIf="authHelperService.isAdmin()" (click)="openConfirmDeleteModal()" class="btn-flat red-text">Delete</button>
-      <!--Add edit here-->
+      <button *ngIf="authHelperService.isAdmin()" routerLink="/products/{{productId}}/edit" class="btn-flat orange-text">Edit</button>
     </div>
 
     <div class="row">

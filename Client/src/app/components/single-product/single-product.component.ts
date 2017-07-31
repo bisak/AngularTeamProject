@@ -41,7 +41,7 @@ export class SingleProductComponent implements OnInit {
   }
 
   getProductError(error) {
-
+    this.toastService.errorToast('An error occured');
   }
 
   handleAddReview(review) {
