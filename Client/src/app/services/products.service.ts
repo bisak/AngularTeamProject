@@ -48,4 +48,12 @@ export class ProductsService {
     return this.apiService.post(`/component/${id}/delete`, {});
   }
 
+  undeleteProduct(id) {
+    return this.apiService.post(`/component/${id}/un-delete`, {});
+  }
+
+  getOnePageDeletedProducts(page?: number | string, search?: string) {
+    return this.apiService.get(`/components/deleted?page=${page}&search=${search}`);
+  }
+
 }

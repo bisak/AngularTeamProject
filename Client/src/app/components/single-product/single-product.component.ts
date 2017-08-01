@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { ToastService } from '../../services/toast.service';
 import { MaterializeAction } from 'angular2-materialize';
 import { AuthHelperService } from '../../services/auth-helper.service';
@@ -23,7 +23,8 @@ export class SingleProductComponent implements OnInit {
               private route: ActivatedRoute,
               private toastService: ToastService,
               public authHelperService: AuthHelperService,
-              public apiService: ApiService) {
+              public apiService: ApiService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -71,6 +72,7 @@ export class SingleProductComponent implements OnInit {
   deleteProduct() {
     this.productsService.deleteProduct(this.productId).then((data) => {
       this.toastService.toast('Deleted successfully');
+      this.router.navigate(['/products', 'all']);
     }).catch((error) => {
       console.log(error);
       this.toastService.toast('An error occured :/');

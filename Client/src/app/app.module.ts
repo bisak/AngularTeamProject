@@ -30,6 +30,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileService } from './services/profile.service';
 import { ModalConfirmComponent } from './sub-components/modal-confirm/modal-confirm.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { DeletedProductsComponent } from './components/deleted-products/deleted-products.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     DateAgoPipe,
     ProfileComponent,
     ModalConfirmComponent,
-    EditProductComponent
+    EditProductComponent,
+    DeletedProductsComponent
   ],
   imports: [
     BrowserModule,

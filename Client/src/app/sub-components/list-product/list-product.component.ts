@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ListProductComponent implements OnInit {
 
   @Input() product;
+  @Input() isDeleted = false;
 
   constructor() { }
 

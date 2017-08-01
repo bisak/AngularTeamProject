@@ -9,6 +9,7 @@ import { SingleProductComponent } from './components/single-product/single-produ
 import { StatsComponent } from './components/stats/stats.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import {EditProductComponent} from "./components/edit-product/edit-product.component";
+import {DeletedProductsComponent} from "./components/deleted-products/deleted-products.component";
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: 'all',
         component: AllProductsComponent
+      },
+      {
+        path: 'deleted',
+        component: DeletedProductsComponent
       },
       {
         path: 'add',
