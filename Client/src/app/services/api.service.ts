@@ -38,6 +38,17 @@ export class ApiService {
       .then((response) => this.extractData(response))
       .catch((response) => this.handleError(response));
   }
+  put(path: string, data: any) {
+    let headers = new Headers();
+    if (this.authHelperService.isLoggedIn()) {
+      headers.append('Authorization', this.authHelperService.getAuthToken());
+    }
+    return this.http.put(`${this.apiUrl}${path}`, data, { headers: headers })
+      .toPromise()
+      .then((response) => this.extractData(response))
+      .catch((response) => this.handleError(response));
+  }
+
 
   delete(path: string) {
     let headers = new Headers();

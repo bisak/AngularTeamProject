@@ -11,7 +11,7 @@
             <div class="input-field">
               <i class="material-icons prefix">details</i>
               <input [(ngModel)]="name" id="name" type="text" class="validate" name="name" required>
-              <label for="name">Name</label>
+              <label for="name" [class.active]="name">Name</label>
             </div>
           </div>
 
@@ -20,7 +20,7 @@
               <i class="material-icons prefix">description</i>
               <input [(ngModel)]="description" id="description" type="text" class="validate" name="description"
                      required>
-              <label for="description">Description</label>
+              <label for="description" [class.active]="description">Description</label>
             </div>
           </div>
 
@@ -28,7 +28,7 @@
             <div class="input-field">
               <i class="material-icons prefix">insert_link</i>
               <input [(ngModel)]="demoUrl" id="demo" type="url" class="validate" name="demo" required>
-              <label for="demo">Demo URL</label>
+              <label for="demo" [class.active]="demo">Demo URL</label>
             </div>
           </div>
 
@@ -36,7 +36,7 @@
             <div class="input-field">
               <i class="material-icons prefix">insert_link</i>
               <input [(ngModel)]="imageUrl" id="image" type="url" class="validate" name="image" required>
-              <label for="image">Image URL</label>
+              <label for="image" [class.active]="image">Image URL</label>
             </div>
           </div>
 
@@ -49,8 +49,8 @@
           <div class="row">
             <div class="input-field">
               <i class="material-icons prefix">attach_money</i>
-              <input [(ngModel)]="price" id="price" type="number" min="1" class="validate" name="password" required>
-              <label for="price">Price</label>
+              <input [(ngModel)]="price" id="price" type="number" min="1" class="validate" name="price" required>
+              <label for="price" [class.active]="price">Price</label>
             </div>
           </div>
 

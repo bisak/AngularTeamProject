@@ -70,7 +70,7 @@ export class EditProductComponent implements OnInit {
 
     this.productsService.editProduct(this.productId, data).then((response) => {
       if(response.success){
-        this.router.navigate([`/product/${this.productId}`]);
+        this.router.navigate([`/products/${this.productId}`]);
       }
     }).catch((error) => {
       this.toastService.errorToast('An error occured')

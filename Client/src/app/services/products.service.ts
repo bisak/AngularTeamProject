@@ -25,7 +25,7 @@ export class ProductsService {
     if(sourceCode){
       formData.append('sourceCode', sourceCode);
     }
-    return this.apiService.post(`/component/${id}/edit`, formData);
+    return this.apiService.put(`/component/${id}/edit`, formData);
   }
 
   getOnePageProducts(page?: number | string, search?: string) {
