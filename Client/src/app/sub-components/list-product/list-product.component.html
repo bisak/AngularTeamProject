@@ -12,8 +12,10 @@
       <span>{{product.description}}</span>
     </div>
     <div class="col m2 center center-block hide-on-small-and-down">
-      <a *ngIf="!isDeleted" class="waves-effect waves-teal btn-flat details-btn" routerLink="/products/{{product._id}}">Details</a>
-      <a *ngIf="isDeleted" class="waves-effect waves-teal btn-flat delete-btn green-text" (click)="product.undelete()">Undelete</a>
+      <a *ngIf="product.isVisible" class="waves-effect waves-teal btn-flat details-btn"
+         routerLink="/products/{{product._id}}">Details</a>
+      <a *ngIf="!product.isVisible" class="waves-effect waves-teal btn-flat delete-btn green-text"
+         (click)="handleUndelete()">Undelete</a>
     </div>
   </div>
 </div>

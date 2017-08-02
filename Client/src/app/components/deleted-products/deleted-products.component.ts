@@ -22,8 +22,6 @@ export class DeletedProductsComponent implements OnInit {
               private router: Router) {
     this.onDataError = this.onDataError.bind(this);
     this.onDataSuccess = this.onDataSuccess.bind(this);
-    this.onUndeleteProductSuccess = this.onUndeleteProductSuccess.bind(this);
-    this.onUndeleteProductError = this.onUndeleteProductError.bind(this);
   }
 
   ngOnInit() {
@@ -34,13 +32,6 @@ export class DeletedProductsComponent implements OnInit {
     const { data } = response;
     this.totalPages = data.pagesCount;
     this.products = data.products;
-    this.products.map(product => {
-      product.undelete = () => {
-        this.productsService.undeleteProduct(product._id)
-          .then(this.onUndeleteProductSuccess)
-          .catch(this.onUndeleteProductError);
-      }
-    })
     window.scrollTo(0, 0);
   }
 
@@ -49,16 +40,6 @@ export class DeletedProductsComponent implements OnInit {
     this.toastService.errorToast('An error occured.');
   }
 
-  onUndeleteProductSuccess(data){
-    let productId = data.data._id;
-    this.toastService.successToast('Product undeleted successfully');
-    this.router.navigate([`/products/${productId}`]);
-  }
-
-  onUndeleteProductError(error){
-    console.log(error);
-    this.toastService.errorToast('An error occured.');
-  }
 
   handleSearch(query) {
     this.router.navigate([`/products/deleted`], { queryParams: { page: 1, search: query } });

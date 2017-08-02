@@ -38,6 +38,7 @@ export class ApiService {
       .then((response) => this.extractData(response))
       .catch((response) => this.handleError(response));
   }
+
   put(path: string, data: any) {
     let headers = new Headers();
     if (this.authHelperService.isLoggedIn()) {

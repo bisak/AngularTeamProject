@@ -16,6 +16,7 @@ export class ProductsService {
     formData.append('sourceCode', sourceCode);
     return this.apiService.post('/component/add', formData);
   }
+
   editProduct(id, data) {
     let formData: FormData = new FormData();
     const productToEditCopy = { ...data };

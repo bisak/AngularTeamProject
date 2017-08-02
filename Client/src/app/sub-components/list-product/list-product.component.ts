@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ProductsService } from '../../services/products.service';
+import { ToastService } from '../../services/toast.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-product',
@@ -8,11 +11,24 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ListProductComponent implements OnInit {
 
   @Input() product;
-  @Input() isDeleted = false;
 
-  constructor() { }
+  constructor(private productsService: ProductsService, private toastService: ToastService, private router: Router) {
+  }
 
   ngOnInit() {
+  }
+
+  handleUndelete() {
+    this.productsService.undeleteProduct(this.product._id).then((data) => {
+        let productId = data.data._id;
+        this.toastService.successToast('Product undeleted successfully');
+        this.router.navigate([`/products/${productId}`]);
+      })
+      .catch((error) => {
+        console.log(error);
+        this.toastService.errorToast('An error occured.');
+      });
+
   }
 
 }
