@@ -1,0 +1,29 @@
+<div #parentElement class="row z-depth-1 inner-padding">
+  <div class="col s12">
+    <div class="col m3">
+      <a routerLink="/profile/{{user.username}}">
+        <img [src]="user.profilePic" class="responsive-img round" alt="Product image">
+      </a>
+    </div>
+    <div class="col m6 break-word">
+      <a routerLink="/profile/{{user.username}}">
+        <p class="name no-margin-top"><strong>{{user.username}}</strong></p>
+      </a>
+      <span>{{user.firstName}} {{user.lastName}}</span>
+    </div>
+    <div class="col m3">
+      <button *ngIf="isAllAdmins" type="button" class="btn-flat red-text right" (click)="openModal()">Remove</button>
+      <button *ngIf="isAddAdmin" type="button" class="btn-flat teal-text right" (click)="openModal()">Add</button>
+      <button *ngIf="isBanUser" type="button" class="btn-flat teal-text right" (click)="openModal()">Ban</button>
+    </div>
+  </div>
+</div>
+
+<app-modal-confirm *ngIf="isAllAdmins" [confirmModal]="confirmModal" [text]="'Really remove admin?'"
+                   (confirm)="removeAdmin()"></app-modal-confirm>
+
+<app-modal-confirm *ngIf="isAddAdmin" [confirmModal]="confirmModal" [text]="'Really add admin?'"
+                   (confirm)="addAdmin()"></app-modal-confirm>
+
+<app-modal-confirm *ngIf="isBanUser" [confirmModal]="confirmModal" [text]="'Really ban user?'"
+                   (confirm)="banUser()"></app-modal-confirm>

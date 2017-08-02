@@ -57,4 +57,7 @@ export class ProductsService {
     return this.apiService.get(`/components/deleted?page=${page}&search=${search}`);
   }
 
+  getOnePageBoughtProducts(page?: number | string, search?: string) {
+    return this.apiService.get(`/components/bought?page=${page}&search=${search}`);
+  }
 }

@@ -8,8 +8,12 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import {EditProductComponent} from "./components/edit-product/edit-product.component";
-import {DeletedProductsComponent} from "./components/deleted-products/deleted-products.component";
+import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { DeletedProductsComponent } from './components/deleted-products/deleted-products.component';
+import { BoughtProductsComponent } from './components/bought-products/bought-products.component';
+import { AddAdminComponent } from './components/add-admin/add-admin.component';
+import { AllAdminsComponent } from './components/all-admins/all-admins.component';
+import { BanUserComponent } from './components/ban-user/ban-user.component';
 
 const routes: Routes = [
   {
@@ -40,6 +44,10 @@ const routes: Routes = [
         component: AddProductComponent
       },
       {
+        path: 'bought',
+        component: BoughtProductsComponent
+      },
+      {
         path: ':id',
         component: SingleProductComponent
       },
@@ -48,6 +56,23 @@ const routes: Routes = [
         component: EditProductComponent
       }
     ]
+  },
+  {
+    path: 'admins',
+    children: [
+      {
+        path: 'add',
+        component: AddAdminComponent
+      },
+      {
+        path: 'all',
+        component: AllAdminsComponent
+      }
+    ]
+  },
+  {
+    path: 'users/ban',
+    component: BanUserComponent
   },
   {
     path: 'statistics',

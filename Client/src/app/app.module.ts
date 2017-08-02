@@ -31,6 +31,12 @@ import { ProfileService } from './services/profile.service';
 import { ModalConfirmComponent } from './sub-components/modal-confirm/modal-confirm.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { DeletedProductsComponent } from './components/deleted-products/deleted-products.component';
+import { BoughtProductsComponent } from './components/bought-products/bought-products.component';
+import { AddAdminComponent } from './components/add-admin/add-admin.component';
+import { AllAdminsComponent } from './components/all-admins/all-admins.component';
+import { ListUserComponent } from './sub-components/list-user/list-user.component';
+import { UsersService } from './services/users.service';
+import { BanUserComponent } from './components/ban-user/ban-user.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +57,12 @@ import { DeletedProductsComponent } from './components/deleted-products/deleted-
     ProfileComponent,
     ModalConfirmComponent,
     EditProductComponent,
-    DeletedProductsComponent
+    DeletedProductsComponent,
+    BoughtProductsComponent,
+    AddAdminComponent,
+    AllAdminsComponent,
+    ListUserComponent,
+    BanUserComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +79,8 @@ import { DeletedProductsComponent } from './components/deleted-products/deleted-
     ValidateService,
     StatsService,
     ProductsService,
-    ProfileService
+    ProfileService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })

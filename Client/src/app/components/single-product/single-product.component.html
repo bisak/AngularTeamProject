@@ -9,7 +9,7 @@
       <br>
       <small *ngIf="product.bought" class="small-text green-text">You own this product.</small>
       <br>
-      <button *ngIf="authHelperService.isAdmin()" (click)="openConfirmDeleteModal()" class="btn-flat red-text">Delete</button>
+      <button *ngIf="authHelperService.isAdmin() && product.isVisible" (click)="openConfirmDeleteModal()" class="btn-flat red-text">Delete</button>
       <button *ngIf="authHelperService.isAdmin()" routerLink="/products/{{productId}}/edit" class="btn-flat orange-text">Edit</button>
     </div>
 
@@ -44,7 +44,7 @@
       <form (ngSubmit)="handleAddReview(reviewArea)">
         <div class="row">
           <div class="input-field col s10 offset-s1 m8 offset-m2">
-            <textarea #reviewArea id="review" class="materialize-textarea" required="required"></textarea>
+            <textarea #reviewArea id="review" class="materialize-textarea input-top-marign" required="required"></textarea>
             <label for="review">Review</label>
           </div>
         </div>

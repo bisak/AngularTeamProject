@@ -1,0 +1,8 @@
+<div class="container">
+  <h5 class="center">Add admin</h5>
+  <div class="row">
+    <div class="col s8 offset-s2" *ngIf="users">
+      <app-list-user *ngFor="let user of users" [user]="user" [isAddAdmin]="true"></app-list-user>
+    </div>
+  </div>
+</div>

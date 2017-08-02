@@ -41,6 +41,11 @@
           </li>
 
           <li [routerLinkActive]="['active']"
+              [routerLinkActiveOptions]="routerLinkOpts"><a class="white-text" [routerLink]="['/products', 'bought']">Your
+            products</a>
+          </li>
+
+          <li [routerLinkActive]="['active']"
               [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['products','add']" class="white-text">Add
             product</a>
           </li>
@@ -51,7 +56,23 @@
           </li>
 
           <li [routerLinkActive]="['active']"
-              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['statistics']" class="white-text">Statistics</a>
+              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['statistics']"
+                                                            class="white-text">Statistics</a>
+          </li>
+
+          <li [routerLinkActive]="['active']"
+              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['admins', 'all']" class="white-text">All
+            admins</a>
+          </li>
+
+          <li [routerLinkActive]="['active']"
+              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['admins', 'add']" class="white-text">Add
+            admin</a>
+          </li>
+
+          <li [routerLinkActive]="['active']"
+              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['users', 'ban']" class="white-text">Ban
+            user</a>
           </li>
 
           <li><a class="white-text" (click)="onLogoutClick()">Logout</a></li>
