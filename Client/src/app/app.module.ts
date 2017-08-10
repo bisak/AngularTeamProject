@@ -38,6 +38,8 @@ import { ListUserComponent } from './sub-components/list-user/list-user.componen
 import { UsersService } from './services/users.service';
 import { BanUserComponent } from './components/ban-user/ban-user.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AdminGuard } from './guards/admin.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     StatsService,
     ProductsService,
     ProfileService,
-    UsersService
+    UsersService,
+    AuthGuard,
+    AdminGuard
   ],
   bootstrap: [AppComponent]
 })
