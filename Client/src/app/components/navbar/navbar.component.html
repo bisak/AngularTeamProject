@@ -45,35 +45,40 @@
             products</a>
           </li>
 
-          <li [routerLinkActive]="['active']"
-              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['products','add']" class="white-text">Add
-            product</a>
-          </li>
 
-          <li [routerLinkActive]="['active']"
-              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['products','deleted']" class="white-text">Deleted
-            products</a>
-          </li>
+          <ul  *ngIf="authHelperService.isAdmin()">
 
-          <li [routerLinkActive]="['active']"
-              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['statistics']"
-                                                            class="white-text">Statistics</a>
-          </li>
+            <li [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['products','add']" class="white-text">Add
+              product</a>
+            </li>
 
-          <li [routerLinkActive]="['active']"
-              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['admins', 'all']" class="white-text">All
-            admins</a>
-          </li>
+            <li [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['products','deleted']" class="white-text">Deleted
+              products</a>
+            </li>
 
-          <li [routerLinkActive]="['active']"
-              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['admins', 'add']" class="white-text">Add
-            admin</a>
-          </li>
+            <li [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['statistics']"
+                                                              class="white-text">Statistics</a>
+            </li>
 
-          <li [routerLinkActive]="['active']"
-              [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['users', 'ban']" class="white-text">Ban
-            user</a>
-          </li>
+            <li [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['admins', 'all']" class="white-text">All
+              admins</a>
+            </li>
+
+            <li [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['admins', 'add']" class="white-text">Add
+              admin</a>
+            </li>
+
+            <li [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['users', 'ban']" class="white-text">Ban
+              user</a>
+            </li>
+
+          </ul>
 
           <li><a class="white-text" (click)="onLogoutClick()">Logout</a></li>
 
@@ -108,7 +113,7 @@
         </li>
 
         <li [routerLinkActive]="['active']">
-          <a [routerLink]="['/products','all']">Products</a>
+          <a [routerLink]="['/products','all']">All products</a>
         </li>
 
         <li *ngIf="!authHelperService.isLoggedIn()" class="divider"></li>
@@ -128,10 +133,44 @@
           <a [routerLink]="['/profile', username]">Profile</a>
         </li>
 
-        <li><a *ngIf="authHelperService.isLoggedIn()" (click)="onLogoutClick()">Logout</a></li>
+        <li *ngIf="authHelperService.isLoggedIn()" [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['/products', 'bought']">Your
+          products</a>
+        </li>
 
+        <li *ngIf="authHelperService.isLoggedIn()"><a  (click)="onLogoutClick()">Logout</a></li>
+
+        <li *ngIf="authHelperService.isLoggedIn() && authHelperService.isAdmin()" class="divider"></li>
+
+        <li *ngIf="authHelperService.isLoggedIn() && authHelperService.isAdmin()" [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['products','add']">Add
+          product</a>
+        </li>
+
+        <li *ngIf="authHelperService.isLoggedIn() && authHelperService.isAdmin()" [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['products','deleted']">Deleted
+          products</a>
+        </li>
+
+        <li *ngIf="authHelperService.isLoggedIn() && authHelperService.isAdmin()" [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['statistics']">Statistics</a>
+        </li>
+
+        <li *ngIf="authHelperService.isLoggedIn() && authHelperService.isAdmin()" [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['admins', 'all']">All
+          admins</a>
+        </li>
+
+        <li *ngIf="authHelperService.isLoggedIn() && authHelperService.isAdmin()" [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['admins', 'add']">Add
+          admin</a>
+        </li>
+
+        <li *ngIf="authHelperService.isLoggedIn() && authHelperService.isAdmin()" [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="routerLinkOpts"><a [routerLink]="['users', 'ban']">Ban
+          user</a>
+        </li>
       </ul>
-
     </div>
   </div>
 </nav>

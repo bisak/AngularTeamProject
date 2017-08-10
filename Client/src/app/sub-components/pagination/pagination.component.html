@@ -1,7 +1,6 @@
 <ul class="pagination center">
-
   <li class="waves-effect">
-    <a [routerLink]="['.']" [queryParams]="{page: currentPage-1, search: search}">
+    <a *ngIf="currentPage>1 && totalPages" [routerLink]="['.']" [queryParams]="{page: currentPage-1, search: search}">
       <i class="material-icons">chevron_left</i>
     </a>
   </li>
@@ -11,7 +10,7 @@
   </li>
 
   <li class="waves-effect">
-    <a [routerLink]="['.']" [queryParams]="{page: currentPage+1, search: search}">
+    <a *ngIf="currentPage<totalPages && totalPages" [routerLink]="['.']" [queryParams]="{page: currentPage+1, search: search}">
       <i class="material-icons">chevron_right</i>
     </a>
   </li>
