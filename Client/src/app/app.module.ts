@@ -37,6 +37,7 @@ import { AllAdminsComponent } from './components/all-admins/all-admins.component
 import { ListUserComponent } from './sub-components/list-user/list-user.component';
 import { UsersService } from './services/users.service';
 import { BanUserComponent } from './components/ban-user/ban-user.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { BanUserComponent } from './components/ban-user/ban-user.component';
     AddAdminComponent,
     AllAdminsComponent,
     ListUserComponent,
-    BanUserComponent
+    BanUserComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

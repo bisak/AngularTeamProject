@@ -14,6 +14,7 @@ import { BoughtProductsComponent } from './components/bought-products/bought-pro
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
 import { AllAdminsComponent } from './components/all-admins/all-admins.component';
 import { BanUserComponent } from './components/ban-user/ban-user.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -81,6 +82,10 @@ const routes: Routes = [
   {
     path: 'profile/:username',
     component: ProfileComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 
