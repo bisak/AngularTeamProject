@@ -38,7 +38,6 @@ export class SingleProductComponent implements OnInit {
 
   getProductSuccess(data) {
     this.product = data;
-    console.log(data);
   }
 
   getProductError(error) {

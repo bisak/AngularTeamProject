@@ -19,7 +19,6 @@ export class StatsComponent implements OnInit {
   }
 
   onGetStatsSuccess(data) {
-    console.log(data);
     let stats = data;
     let usersChartElement = document.getElementById('usersChart');
     new Chart(usersChartElement, {

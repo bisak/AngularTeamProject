@@ -24,12 +24,10 @@ export class ListUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.user);
   }
 
   removeAdmin() {
     this.userService.removeAdmin(this.user.username).then((response) => {
-      console.log(response);
       this.toastService.toast('Successfully removed admin.');
       this.element.nativeElement.remove();
       this.closeModal();
@@ -41,7 +39,6 @@ export class ListUserComponent implements OnInit {
 
   addAdmin(){
     this.userService.addAdmin(this.user.username).then((response) => {
-      console.log(response);
       this.toastService.toast('Successfully added admin.');
       this.element.nativeElement.remove();
       this.closeModal();
@@ -53,7 +50,6 @@ export class ListUserComponent implements OnInit {
 
   banUser(){
     this.userService.banUser(this.user.username).then((response) => {
-      console.log(response);
       this.toastService.toast('Successfully banned user.');
       this.element.nativeElement.remove();
       this.closeModal();
