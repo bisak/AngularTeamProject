@@ -16,6 +16,9 @@ import { AllAdminsComponent } from './components/all-admins/all-admins.component
 import { BanUserComponent } from './components/ban-user/ban-user.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
+import { AdminGuard } from './guards/admin.guard';
+import { AuthGuard } from './guards/auth.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -38,23 +41,28 @@ const routes: Routes = [
       },
       {
         path: 'deleted',
-        component: DeletedProductsComponent
+        component: DeletedProductsComponent,
+        canActivate: [ AdminGuard ]
       },
       {
         path: 'add',
-        component: AddProductComponent
+        component: AddProductComponent,
+        canActivate: [ AdminGuard ]
       },
       {
         path: 'bought',
-        component: BoughtProductsComponent
+        component: BoughtProductsComponent,
+        canActivate: [ AuthGuard ]
       },
       {
         path: ':id',
-        component: SingleProductComponent
+        component: SingleProductComponent,
+        canActivate: [ AuthGuard ]
       },
       {
         path: ':id/edit',
-        component: EditProductComponent
+        component: EditProductComponent,
+        canActivate: [ AdminGuard ]
       }
     ]
   },
@@ -63,25 +71,30 @@ const routes: Routes = [
     children: [
       {
         path: 'add',
-        component: AddAdminComponent
+        component: AddAdminComponent,
+        canActivate: [ AuthGuard ]
       },
       {
         path: 'all',
-        component: AllAdminsComponent
+        component: AllAdminsComponent,
+        canActivate: [ AuthGuard ]
       }
     ]
   },
   {
     path: 'users/ban',
-    component: BanUserComponent
+    component: BanUserComponent,
+    canActivate: [ AuthGuard ]
   },
   {
     path: 'statistics',
-    component: StatsComponent
+    component: StatsComponent,
+    canActivate: [ AuthGuard ]
   },
   {
     path: 'profile/:username',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [ AuthGuard ]
   },
   {
     path: '**',
