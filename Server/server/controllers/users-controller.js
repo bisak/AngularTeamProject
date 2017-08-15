@@ -5,7 +5,7 @@ const Review = require('../data/Review')
 const jwt = require('jsonwebtoken')
 
 module.exports = {
-  register (req, res) {
+  register(req, res) {
     let userToRegister = req.body
     if (userToRegister && userToRegister.roles) delete userToRegister.roles
     let validateInput = validatorUtil.validateRegisterInput(userToRegister)
@@ -15,6 +15,9 @@ module.exports = {
         msg: validateInput.msg
       })
     }
+
+    if (!userToRegister.profilePic)
+      userToRegister.profilePic = 'http://i.imgur.com/upiaF0M.png'
 
     return encryptionUtil.generateHash(userToRegister.password).then((hash) => {
       userToRegister.password = hash
@@ -37,7 +40,7 @@ module.exports = {
       })
     })
   },
-  login (req, res) {
+  login(req, res) {
     const username = req.body.username
     const password = req.body.password
 
@@ -61,7 +64,7 @@ module.exports = {
       return res.status(500).json({ success: false, msg: 'Database error.', err: error })
     })
   },
-  getUserById (req, res) {
+  getUserById(req, res) {
     let username = req.params.username
     let promises = []
     promises.push(User.findOne({ username: username }).select('-password').lean())
